@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <title>Add a new Schedule</title>
+        
+        <!-- CSS Style file link start -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/todc.css" media="screen" />
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <!-- CSS Style file link end-->
+        
+        <script>
+		  $(function() {
+		    $( "#datepicker" ).datepicker();
+		    $( "#datepicker2" ).datepicker();
+		  });
+  		</script>
+        
+    </head>
+    <body>
+        <header style="width:100%">
+        	<ul class="nav nav-pills">
+			  <li>
+			    <a href="duetoday.html"><img src="img/tasks.png" width="94"><br>Due Today</a>
+			  </li>
+			  <li class="active"><a href="schedule.html"><img src="img/calender.png" width="94"><br>Schedule</a></li>
+			  <li><a href="history.html"><img src="img/history.png" width="94"><br>History</a></li>
+			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="94"><br>Help</a></li>
+			</ul>
+        </header>
+    	
+        <form style="width:100%" action="schedule.html">
+        	<p>Dosage</p>
+        	<select name="dosage" id="dosage" style="width:100%">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>							
+				<option value="5">5</option>
+				<option value="6">6</option>
+			</select><br>
+			<p>Time Interval</p>
+			<table border=1 style="width:100%">
+				<tr>
+					<td style="width:20%；text-align:center;vertical-align: middle;">09:00</td>
+					<td style="width:20%；text-align:center;vertical-align: middle;">11:00</td>
+					<td style="width:20%；text-align:center;vertical-align: middle;">13:00</td>
+					<td style="width:20%；text-align:center;vertical-align: middle;">17:00</td>
+					<td style="width:20%；text-align:center;vertical-align: middle;">21:00</td>
+				</tr>
+			</table>
+			<p>Start Date:</p>
+			<input type="text" id="datepicker" style="width:95%"/><br>
+			<p>End Date:</p>
+			<input type="text" id="datepicker2" style="width:95%"/><br>
+			<input type="reset" value="Reset" style="float:left;font-size:1.2em"/>
+			<input type="submit" value="Next" style="float:right;font-size:1.2em"/>
+	
+    	</form>    
+    </body>
+</html>

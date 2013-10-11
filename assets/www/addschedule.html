@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <title>Add a new Schedule</title>
+        
+        <!-- CSS Style file link start -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/todc.css" media="screen" />
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/js.js"></script>
+        <!-- CSS Style file link end-->
+        
+    </head>
+    <body>
+        <header style="width:100%">
+        	<ul class="nav nav-pills">
+			  <li>
+			    <a href="duetoday.html"><img src="img/tasks.png" width="94"><br>Due Today</a>
+			  </li>
+			  <li class="active"><a href="schedule.html"><img src="img/calender.png" width="94"><br>Schedule</a></li>
+			  <li><a href="history.html"><img src="img/history.png" width="94"><br>History</a></li>
+			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="94"><br>Help</a></li>
+			</ul>
+        </header>
+    
+        <form style="width:100%" action="addmedicine.html">
+	        <!-- table1 name -->
+	        <table border="0" cellpadding="10" cellspacing="0" width="480">
+	        	<tr>
+				 	<td>
+						<p>Name of Medication</p>
+				 	</td>
+			 	</tr>
+			 	<tr>
+			 		<td><input style="width:95%" type="text" id="nom" name="nom"/>
+			 	</tr>
+			</table>
+			<br><br><br>
+			<!-- table2 type -->
+			<table border="0" cellpadding="10" cellspacing="0" width="480">
+				<tr>
+					<td><p>Type</p></td>
+				</tr>
+				<tr>
+					<td>
+						<select name="type" id="type" style="width:100%">
+							<option value="tablet">Tablet</option>
+							<option value="pill">Pill</option>
+							<option value="eye_drop">Eye drop</option>
+							<option value="tablet">Liquid</option>							
+						</select>
+					</td>
+				</tr>
+			</table>
+			        
+			<input type="reset" value="Reset" style="float:left;font-size:1.2em"/>
+			<input type="submit" value="Next" style="float:right;font-size:1.2em"/>
+	
+    	</form>    
+    </body>
+</html>

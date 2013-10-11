@@ -1,0 +1,10 @@
+   <script>
+        	function addMedicine(){
+        		var newRecord = get session();
+        		if(noempty20){
+        			var qwerty = getEleBID("new1");
+        			var name = qwerty.name();
+        			qwerty.("<div><table><tr><td>"+name+"</div>");
+        		}
+        	}
+        </script>
