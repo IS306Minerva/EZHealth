@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, target-densityDpi=device-dpi" />
 <title>Calender</title>
 	<!-- CSS Style file link start -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen" />
@@ -16,212 +17,209 @@
         <header style="width:100%">
         	<ul class="nav nav-pills">
 			  <li>
-			    <a href="duetoday.html"><img src="img/tasks.png" width="94"><br>Due Today</a>
+			    <a href="duetoday.html"><img src="img/tasks.png" width="80"><br>Due Today</a>
 			  </li>
-			  <li><a href="schedule.html"><img src="img/calender.png" width="94"><br>Schedule</a></li>
-			  <li class="active"><a href="history.html"><img src="img/history.png" width="94"><br>History</a></li>
-			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="94"><br>Help</a></li>
+			  <li><a href="schedule.html"><img src="img/calender.png" width="80"><br>Schedule</a></li>
+			  <li class="active"><a href="history.html"><img src="img/history.png" width="80"><br>History</a></li>
+			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="80"><br>Help</a></li>
 			</ul>
         </header>
-<script type="text/javascript">
-var $ = function (id) {
-    return "string" == typeof id ? document.getElementById(id) : id;
-};
-
-var Class = {
-  create: function() {
-    return function() {
-      this.initialize.apply(this, arguments);
-    }
-  }
-}
-
-Object.extend = function(destination, source) {
-    for (var property in source) {
-        destination[property] = source[property];
-    }
-    return destination;
-}
-
-var Calendar = Class.create();
-Calendar.prototype = {
-  initialize: function(container, options) {
-    this.Container = $(container);//螳ｹ蝎ｨ(table扈捺桷)
-    this.Days = [];//譌･譛溷ｯｹ雎｡蛻苓｡ｨ
-   
-    this.SetOptions(options);
-   
-    this.Year = this.options.Year;
-    this.Month = this.options.Month;
-    this.SelectDay = this.options.SelectDay ? new Date(this.options.SelectDay) : null;
-    this.onSelectDay = this.options.onSelectDay;
-    this.onToday = this.options.onToday;
-    this.onFinish = this.options.onFinish;   
-   
-    this.Draw();
-  },
-  //隶ｾ鄂ｮ鮟倩ｮ､螻樊�
-  SetOptions: function(options) {
-    this.options = {//鮟倩ｮ､蛟?
-        Year:            new Date().getFullYear(),//譏ｾ遉ｺ蟷?
-        Month:            new Date().getMonth() + 1,//譏ｾ遉ｺ譛?
-        SelectDay:        null,//騾画叫譌･譛�
-        onSelectDay:    function(){},//蝨ｨ騾画叫譌･譛溯ｧｦ蜿�
-        onToday:        function(){},//蝨ｨ蠖灘､ｩ譌･譛溯ｧｦ蜿?
-        onFinish:        function(){}//譌･蜴�判螳悟錘隗ｦ蜿?
-    };
-    Object.extend(this.options, options || {});
-  },
-  //荳贋ｸ�ｸｪ譛�
-  PreMonth: function() {
-    //蜈亥叙蠕嶺ｸ贋ｸ�ｸｪ譛育噪譌･譛溷ｯｹ雎?
-    var d = new Date(this.Year, this.Month - 2, 1);
-    //蜀崎ｮｾ鄂ｮ螻樊�
-    this.Year = d.getFullYear();
-    this.Month = d.getMonth() + 1;
-    //驥肴眠逕ｻ譌･蜴?
-    this.Draw();
-  }, 
-  //荳倶ｸ�ｸｪ譛�
-  NextMonth: function() {
-    var d = new Date(this.Year, this.Month, 1);
-    this.Year = d.getFullYear();
-    this.Month = d.getMonth() + 1;
-    this.Draw();
-  },
-  //逕ｻ譌･蜴?
-  Draw: function() {
-    //逕ｨ譚･菫晏ｭ俶律譛溷�陦ｨ
-    var arr = [];
-    //逕ｨ蠖捺怦隨ｬ荳�､ｩ蝨ｨ荳�捉荳ｭ逧�律譛溷�菴應ｸｺ蠖捺怦遖ｻ隨ｬ荳�､ｩ逧�､ｩ謨ｰ
-    for(var i = 1, firstDay = new Date(this.Year, this.Month - 1, 1).getDay(); i <= firstDay; i++){ arr.push("&nbsp;"); }
-    //逕ｨ蠖捺怦譛�錘荳�､ｩ蝨ｨ荳�ｸｪ譛井ｸｭ逧�律譛溷�菴應ｸｺ蠖捺怦逧�､ｩ謨ｰ
-    for(var i = 1, monthDay = new Date(this.Year, this.Month, 0).getDate(); i <= monthDay; i++){ arr.push(i); }
-   
-    var frag = document.createDocumentFragment();
-   
-    this.Days = [];
-   
-    while(arr.length > 0){
-        //豈丈ｸｪ譏滓悄謠貞�荳�ｸｪtr
-        var row = document.createElement("tr");
-        //豈丈ｸｪ譏滓悄譛?螟?
-        for(var i = 1; i <= 7; i++){
-            var cell = document.createElement("td");
-            cell.innerHTML = "&nbsp;";
-           
-            if(arr.length > 0){
-                var d = arr.shift();
-                cell.innerHTML = d;
-                if(d > 0){
-                    this.Days[d] = cell;
-                    //蛻､譁ｭ譏ｯ蜷ｦ莉頑律
-                    if(this.IsSame(new Date(this.Year, this.Month - 1, d), new Date())){ this.onToday(cell); }
-                    //蛻､譁ｭ譏ｯ蜷ｦ騾画叫譌･譛�
-                    if(this.SelectDay && this.IsSame(new Date(this.Year, this.Month - 1, d), this.SelectDay)){ this.onSelectDay(cell); }
-                }
-            }
-            row.appendChild(cell);
-        }
-        frag.appendChild(row);
-    }
-   
-    //蜈域ｸ�ｩｺ蜀�ｮｹ蜀肴薯蜈･(ie逧дable荳崎�逕ｨinnerHTML)
-    while(this.Container.hasChildNodes()){ this.Container.removeChild(this.Container.firstChild); }
-    this.Container.appendChild(frag);
-   
-    this.onFinish();
-  },
-  //蛻､譁ｭ譏ｯ蜷ｦ蜷御ｸ��
-  IsSame: function(d1, d2) {
-    return (d1.getFullYear() == d2.getFullYear() && d1.getMonth() == d2.getMonth() && d1.getDate() == d2.getDate());
-  }
-};
-
-</SCRIPT>
-<style type="text/css">
-
-.Calendar {
-    font-family:Verdana;
-    font-size:18px;
-    background-color:#e0ecf9;
-    text-align:center;
-    width:460px;
-    padding:10px;
-    line-height:3em;
-}
-.Calendar a{
-    color:#1e5494;
-}
-
-.Calendar table{
-width:100%;
-border:0;
-}
-
-.Calendar table thead{color:#acacac;}
-
-.Calendar table td {
-    font-size: 18px;
-    padding:1px;
-}
-#idCalendarPre{
-    cursor:pointer;
-    float:left;
-    padding-right:5px;
-}
-#idCalendarNext{
-    cursor:pointer;
-    float:right;
-    padding-right:5px;
-}
-#idCalendar td.onToday {
-    font-weight:bold;
-    color:#C60;
-}
-#idCalendar td.onSelect {
-    font-weight:bold;
-}
-</style>
-<div class="Calendar">
-  <div id="idCalendarPre">&lt;&lt;</div>
-  <div id="idCalendarNext">&gt;&gt;</div>
-  <span id="idCalendarYear">2008</span>  <span id="idCalendarMonth">8</span>
-  <table cellspacing="0">
-    <thead>
-      <tr>
-        <td>Mon</td>
-        <td>Tue</td>
-        <td>Wed</td>
-        <td>Thu</td>
-        <td>Fri</td>
-        <td>Sat</td>
-        <td>Sun</td>
-      </tr>
-    </thead>
-    <tbody id="idCalendar">
-    </tbody>
-  </table>
-</div>
-<script language="JavaScript">
-
-var cale = new Calendar("idCalendar", {
-    SelectDay: new Date().setDate(10),
-    onSelectDay: function(o){ o.className = "onSelect"; },
-    onToday: function(o){ o.className = "onToday"; },
-    onFinish: function(){
-        $("idCalendarYear").innerHTML = this.Year; $("idCalendarMonth").innerHTML = this.Month;
-        var flag = [10,15,20];
-        for(var i = 0, len = flag.length; i < len; i++){
-            this.Days[flag[i]].innerHTML = "<a href='javascript:void(0);' onclick=\"alert('譌･譛滓�"+this.Year+"/"+this.Month+"/"+flag[i]+"');return false;\">" + flag[i] + "</a>";
-        }
-    }
-});
-
-$("idCalendarPre").onclick = function(){ cale.PreMonth(); }
-$("idCalendarNext").onclick = function(){ cale.NextMonth(); }
-
-</SCRIPT>
+	<script type="text/javascript">
+	var $ = function (id) {
+	    return "string" == typeof id ? document.getElementById(id) : id;
+	};
+	
+	var Class = {
+	  create: function() {
+	    return function() {
+	      this.initialize.apply(this, arguments);
+	    }
+	  }
+	}
+	
+	Object.extend = function(destination, source) {
+	    for (var property in source) {
+	        destination[property] = source[property];
+	    }
+	    return destination;
+	}
+	
+	var Calendar = Class.create();
+	Calendar.prototype = {
+	  initialize: function(container, options) {
+	    this.Container = $(container);
+	    this.Days = [];
+	    this.SetOptions(options);
+	   
+	    this.Year = this.options.Year;
+	    this.Month = this.options.Month;
+	    this.SelectDay = this.options.SelectDay ? new Date(this.options.SelectDay) : null;
+	    this.onSelectDay = this.options.onSelectDay;
+	    this.onToday = this.options.onToday;
+	    this.onFinish = this.options.onFinish;   
+	   
+	    this.Draw();
+	  },
+	  SetOptions: function(options) {
+	    this.options = {
+	        Year:            new Date().getFullYear(),
+	        Month:            new Date().getMonth() + 1,
+	        SelectDay:        null,
+	        onSelectDay:    function(){},
+	        onToday:        function(){},
+	        onFinish:        function(){}
+	    };
+	    Object.extend(this.options, options || {});
+	  },
+	  PreMonth: function() {
+	    var d = new Date(this.Year, this.Month - 2, 1);
+	    this.Year = d.getFullYear();
+	    this.Month = d.getMonth() + 1;
+	    this.Draw();
+	  }, 
+	  NextMonth: function() {
+	    var d = new Date(this.Year, this.Month, 1);
+	    this.Year = d.getFullYear();
+	    this.Month = d.getMonth() + 1;
+	    this.Draw();
+	  },
+	 
+	  Draw: function() {
+	    
+	    var arr = [];
+	   
+	    for(var i = 1, firstDay = new Date(this.Year, this.Month - 1, 1).getDay(); i <= firstDay; i++){ arr.push("&nbsp;"); }
+	    
+	    for(var i = 1, monthDay = new Date(this.Year, this.Month, 0).getDate(); i <= monthDay; i++){ arr.push(i); }
+	   
+	    var frag = document.createDocumentFragment();
+	   
+	    this.Days = [];
+	   
+	    while(arr.length > 0){
+	      
+	        var row = document.createElement("tr");
+	      
+	        for(var i = 1; i <= 7; i++){
+	            var cell = document.createElement("td");
+	            cell.innerHTML = "&nbsp;";
+	            
+	            if(arr.length > 0){
+	                var d = arr.shift();
+	                cell.innerHTML = d;
+	                if(d > 0){
+	                    this.Days[d] = cell;
+	                    
+	                    if(this.IsSame(new Date(this.Year, this.Month - 1, d), new Date())){ this.onToday(cell); }
+	                    
+	                    if(this.SelectDay && this.IsSame(new Date(this.Year, this.Month - 1, d), this.SelectDay)){ this.onSelectDay(cell); }
+	                }
+	            }
+	            row.appendChild(cell);
+	        }
+	        frag.appendChild(row);
+	    }
+	   
+	    
+	    while(this.Container.hasChildNodes()){ this.Container.removeChild(this.Container.firstChild); }
+	    this.Container.appendChild(frag);
+	   
+	    this.onFinish();
+	  },
+	 
+	  IsSame: function(d1, d2) {
+	    return (d1.getFullYear() == d2.getFullYear() && d1.getMonth() == d2.getMonth() && d1.getDate() == d2.getDate());
+	  }
+	};
+	
+	</SCRIPT>
+	<style type="text/css">
+	
+	.Calendar {
+	    font-family:Verdana;
+	    font-size:18px;
+	    background-color:#e0ecf9;
+	    text-align:center;
+	    width:460px;
+	    padding:10px;
+	    line-height:3em;
+	}
+	.Calendar a{
+	    color:#1e5494;
+	}
+	
+	.Calendar table{
+	width:100%;
+	border:0;
+	}
+	
+	.Calendar table thead{color:#acacac;}
+	
+	.Calendar table td {
+	    font-size: 18px;
+	    padding:1px;
+	}
+	#idCalendarPre{
+	    cursor:pointer;
+	    float:left;
+	    padding-right:5px;
+	}
+	#idCalendarNext{
+	    cursor:pointer;
+	    float:right;
+	    padding-right:5px;
+	}
+	#idCalendar td.onToday {
+	    font-weight:bold;
+	    color:#C60;
+	}
+	#idCalendar td.onSelect {
+	    font-weight:bold;
+	}
+	</style>
+	<div class="Calendar">
+	  <div id="idCalendarPre">&lt;&lt;</div>
+	  <div id="idCalendarNext">&gt;&gt;</div>
+	  <span id="idCalendarYear">2008</span>  <span id="idCalendarMonth">8</span>
+	  <table cellspacing="0">
+	    <thead>
+	      <tr>
+	        <td>Mon</td>
+	        <td>Tue</td>
+	        <td>Wed</td>
+	        <td>Thu</td>
+	        <td>Fri</td>
+	        <td>Sat</td>
+	        <td>Sun</td>
+	      </tr>
+	    </thead>
+	    <tbody id="idCalendar">
+	    </tbody>
+	  </table>
+	</div>
+	<script language="JavaScript">
+	
+	var cale = new Calendar("idCalendar", {
+	    SelectDay: new Date().setDate(10),
+	    onSelectDay: function(o){ o.className = "onSelect"; },
+	    onToday: function(o){ o.className = "onToday"; },
+	    onFinish: function(){
+	        $("idCalendarYear").innerHTML = this.Year; $("idCalendarMonth").innerHTML = this.Month;
+	        var flag = [5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+	        for(var i = 0, len = flag.length; i < len; i++){
+	        	if (flag[i]<=16){
+	            	this.Days[flag[i]].innerHTML = "<a href='javascript:void(0);' onclick=\"alert('Medication:                                                                                     Panodol 3 tablets 3 times All Taken                                                         Zylet 2 eyedrops 2 times All Taken                                                                "+this.Year+"/"+this.Month+"/"+flag[i]+"');return false;\">" + flag[i] + "</a>";
+	        	}else{
+	        		this.Days[flag[i]].innerHTML = "<a href='javascript:void(0);' onclick=\"alert('Medication:                                                                                     Panodol 3 tablets 3 times Will Be Taken                                                         Zylet 2 eyedrops 2 times Will Be Taken                                                                "+this.Year+"/"+this.Month+"/"+flag[i]+"');return false;\">" + flag[i] + "</a>";
+	        	}
+	        }
+	    }
+	});
+	
+	$("idCalendarPre").onclick = function(){ cale.PreMonth(); }
+	$("idCalendarNext").onclick = function(){ cale.NextMonth(); }
+	
+	</script>
 </body>
 </html>
  

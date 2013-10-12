@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, target-densityDpi=device-dpi" />
         <title>Add a new Schedule</title>
         
         <!-- CSS Style file link start -->
@@ -13,7 +13,18 @@
   		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <!-- CSS Style file link end-->
-        
+        <style>
+        	select:hover:focus,input:hover:focus{
+        		background:yellow;
+       			
+        	}
+			.button{
+				width: 90px!important;
+				text-align: center;
+				font-size: 1.2em;
+			}
+        	
+        </style>
         <script>
 		  $(function() {
 		    $( "#datepicker" ).datepicker();
@@ -26,11 +37,11 @@
         <header style="width:100%">
         	<ul class="nav nav-pills">
 			  <li>
-			    <a href="duetoday.html"><img src="img/tasks.png" width="94"><br>Due Today</a>
+			    <a href="duetoday.html"><img src="img/tasks.png" width="80"><br>Due Today</a>
 			  </li>
-			  <li class="active"><a href="schedule.html"><img src="img/calender.png" width="94"><br>Schedule</a></li>
-			  <li><a href="history.html"><img src="img/history.png" width="94"><br>History</a></li>
-			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="94"><br>Help</a></li>
+			  <li class="active"><a href="schedule.html"><img src="img/calender.png" width="80"><br>Schedule</a></li>
+			  <li><a href="history.html"><img src="img/history.png" width="80"><br>History</a></li>
+			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="80"><br>Help</a></li>
 			</ul>
         </header>
     	
@@ -45,13 +56,36 @@
 				<option value="6">6</option>
 			</select><br>
 			<p>Time Interval</p>
-			<table border=1 style="width:100%">
+			<script>
+				function interval(id,time){
+					var button = document.getElementById(id);
+					var interval = window.prompt(" Choose a time for "+id,time)
+					if(interval!=null){
+							button.value = interval;
+						}else{
+							alert("Interval cannot be empty");
+						}
+					
+				}
+			
+			</script>
+			<table style="width:100%">
 				<tr>
-					<td style="width:20%；text-align:center;vertical-align: middle;">09:00</td>
-					<td style="width:20%；text-align:center;vertical-align: middle;">11:00</td>
-					<td style="width:20%；text-align:center;vertical-align: middle;">13:00</td>
-					<td style="width:20%；text-align:center;vertical-align: middle;">17:00</td>
-					<td style="width:20%；text-align:center;vertical-align: middle;">21:00</td>
+					<td style="width:20%；text-align:center;vertical-align: middle;">
+						<input class="button" type="button" id="interval_1" onclick="interval(this.id,this.value);" value="09:00"/>
+					</td>
+					<td style="width:20%；text-align:center;vertical-align: middle;">
+						<input class="button" type="button" id="interval_2" onclick="interval(this.id,this.value);" value="12:00"/>
+					</td>
+					<td style="width:20%；text-align:center;vertical-align: middle;">
+						<input class="button" type="button" id="interval_3" onclick="interval(this.id,this.value);" value="18:00"/>
+					</td>
+					<td style="width:20%；text-align:center;vertical-align: middle;">
+						<input class="button" type="button" id="interval_4" onclick="interval(this.id,this.value);" value="00:00"/>
+					</td>
+					<td style="width:20%；text-align:center;vertical-align: middle;">
+						<input class="button" type="button" id="interval_5" onclick="interval(5,"00:00");" value="00:00"/>
+					</td>
 				</tr>
 			</table>
 			<p>Start Date:</p>

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, target-densityDpi=device-dpi" />
         <title>Schedule</title>
         
         <!-- CSS Style file link start -->
@@ -36,11 +36,11 @@
         <header style="width:100%">
         	<ul class="nav nav-pills">
 			  <li>
-			    <a href="duetoday.html"><img src="img/tasks.png" width="94"><br>Due Today</a>
+			    <a href="duetoday.html"><img src="img/tasks.png" width="80"><br>Due Today</a>
 			  </li>
-			  <li class="active"><a href="schedule.html"><img src="img/calender.png" width="94"><br>Schedule</a></li>
-			  <li><a href="history.html"><img src="img/history.png" width="94"><br>History</a></li>
-			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="94"><br>Help</a></li>
+			  <li class="active"><a href="schedule.html"><img src="img/calender.png" width="80"><br>Schedule</a></li>
+			  <li><a href="history.html"><img src="img/history.png" width="80"><br>History</a></li>
+			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="80"><br>Help</a></li>
 			</ul>
         </header>
         <div><!-- This is table 1 -->
@@ -48,6 +48,7 @@
 				<tr>
 					<td colspan="2"><input id="m1" name="m1" type="checkbox">Panadol</td>
 					<td>&nbsp;&nbsp;3</td><td colspan="2">Pills</td>
+					
 				</tr>
 				<tr style="text-align:center;">
 					<td style="border:1 solid black">09:00</td>
@@ -107,7 +108,13 @@
 			</div>
 			
 			<input type="button" value="Add Schedule" onclick="location.href='addschedule.html'" style="float:left;font-size:1.2em">
+			<div align=center>
+			<input type="button" value="Edit Schedule" onclick="location.href='addschedule.html'" style="float:none;font-size:1.2em">
+			
 			<input type="button" value="Delete Schedule" onclick="delete();" style="float:right;font-size:1.2em">
+			</div>
 		</div>
+		
+		
     </body>
 </html>
