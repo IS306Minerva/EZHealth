@@ -4,39 +4,45 @@
         <meta charset="utf-8" />
          <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, target-densityDpi=device-dpi" />
         <title>Due Today</title>
-        <!-- CSS Style file link start -->
+        
+        <!-- Style & Script file link start-->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/todc.css" media="screen" />
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/js.js"></script>
-        
-        <!-- CSS Style file link end-->
-        
+        <!-- Style & Script file link end-->
     </head>
     <body>
-        <header style="width:100%">
+    	<header style="width:100%;text-align:center;">
         	<ul class="nav nav-pills">
-			  <li>
+			  <li class="active">
 			    <a href="duetoday.html"><img src="img/tasks.png" width="94"><br>Due Today</a>
 			  </li>
 			  <li><a href="schedule.html"><img src="img/calender.png" width="94"><br>Schedule</a></li>
 			  <li><a href="history.html"><img src="img/history.png" width="94"><br>History</a></li>
-			  <li class="active"><a href="help.html"><img src="img/bullet-question-w-g.png" width="94"><br>Help</a></li>
+			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="94"><br>Help</a></li>
 			</ul>
         </header>
-        
-        <div id="content">
-        	<br>
-			<div style="float:center;font-size:2em;font-weight:bold">Help Page</div><br />
-			<table style="font-size:1.3em;float:center;line-height:3em;" width="100%">
-				<a href="answer.html"><br>How to add Schedule and edit Schedule</a><br />
-				<a href="answer1.html"><br>How to delete a schedule</a><br />
-				<a href="answer2.html"><br>How to check medicine details</a><br />
-				<a href="answer3.html"><br>How to check history</a><br />
-				
-			</tbody></table>
-
-		</div>
+    	<table border="0" cellpadding="10" cellspacing="10">
+		 	<tr><td style="width:30%">Medication Name: </td><td>Zylet</td></tr>
+			<tr>
+				<td>Dosage: </td>
+				<td>2</td>
+				<td>Tablet</td>
+			</tr>
+			<tr>
+				<td>Start Date: </td>
+				<td>2013-10-01</td>
+			</tr>
+			<tr>
+				<td>End Date: </td>
+				<td>2013-10-20</td>
+			</tr>
+			<tr><td>Interval: </td></tr>
+			<tr><td>8:30</td><td>12:00</td><td>17:00</td></tr>
+		</table>
+    	<button style="float:right" class="btn btn-large btn-success" onclick="location.href='duetoday.html'"">OK</button>
+    	
     </body>
 </html>

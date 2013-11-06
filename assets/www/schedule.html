@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, target-densityDpi=device-dpi" />
+         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, target-densityDpi=device-dpi" />
         <title>Schedule</title>
         
         <!-- CSS Style file link start -->
@@ -33,88 +33,120 @@
         
     </head>
     <body>
-        <header style="width:100%">
+        <header style="width:100%;text-align:center;">
         	<ul class="nav nav-pills">
 			  <li>
-			    <a href="duetoday.html"><img src="img/tasks.png" width="80"><br>Due Today</a>
+			    <a href="duetoday.html"><img src="img/tasks.png" width="94"><br>Due Today</a>
 			  </li>
-			  <li class="active"><a href="schedule.html"><img src="img/calender.png" width="80"><br>Schedule</a></li>
-			  <li><a href="history.html"><img src="img/history.png" width="80"><br>History</a></li>
-			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="80"><br>Help</a></li>
+			  <li class="active"><a href="schedule.html"><img src="img/calender.png" width="94"><br>Schedule</a></li>
+			  <li><a href="history.html"><img src="img/history.png" width="94"><br>History</a></li>
+			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="94"><br>Help</a></li>
 			</ul>
         </header>
+        
+        <button style="float:right;font-size:1.1em" class="btn btn-large btn-primary" onclick="location.href='addschedule.html'"">Add Schedule</button>
+        
+        <br /><br /><br />
+
         <div><!-- This is table 1 -->
-        	<div id="table1" style="padding:10 20 20 20"><table border="0" width="100%">
+        	<div id="table1">
+        	<table border="0" width="100%">
 				<tr>
-					<td colspan="2"><input id="m1" name="m1" type="checkbox">Panadol</td>
-					<td>&nbsp;&nbsp;3</td><td colspan="2">Pills</td>
-					
+					<td width="4%"></td>
+					<td colspan=2 width="53%">
+					<label class="checkbox">
+						<input id="m1" name="m1" type="checkbox"><h4>Panadol</h4>
+					</label></td>
+					<td width="10%"></td>
+					<td><button class="btn btn-small btn-warning" onclick="location.href='addschedule.html'">Edit</button>
+					<button class="btn btn-small btn-danger" onclick="delete(this.id);">Delete</button></td>
 				</tr>
 				<tr style="text-align:center;">
-					<td style="border:1 solid black">09:00</td>
-					<td style="border:1 solid black">14:00</td>
-					<td style="border:1 solid black">19:00</td>
-					<td style="border:1 solid black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td style="border:1 solid black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td width="4%"></td>
+					<td>Dosage: </td>
+					<td style="border:1 solid black"><p class="text-success"><strong>3</strong></p></td>
+					<td></td><td>Pills</td>
 				</tr>
-				<tr>
-					<td colspan="2">28/08/2013</td>
-					<td>&nbsp;&nbsp;&nbsp;To&nbsp;&nbsp;&nbsp;</td>
-					<td colspan="2">29/09/2013</td>
+				<tr style="text-align:center;">
+					<td width="4%"></td>
+					<td style="border:1 solid black"><p class="text-info"><strong>09:00</strong></p></td>
+					<td style="border:1 solid black"><p class="text-info"><strong>14:00</strong></p></td>
+					<td></td><td style="border:1 solid black"><p class="text-info"><strong>19:00</strong></p></td>
 				</tr>
-			</tbody></table><hr><br>
+				<tr style="text-align:center;">
+				<td width="4%"></td>
+					<td><p class="text-warning"><strong><i>28/08/2013</i></strong></p></td>
+					<td>&nbsp;&nbsp;&nbsp;To&nbsp;&nbsp;&nbsp;</td><td></td>
+					<td><p class="text-warning"><strong><i>29/09/2013</i></strong></p></td>
+				</tr>
+				</table><hr>
 			</div>
 			
 			<!-- This is table 2 -->
 			<div id="table2"><table width="100%">
-				<tbody><tr>
-					<td colspan="2"><input id="m2" name="m2" type="checkbox">Eyemo</td>
-					<td>&nbsp;&nbsp;2</td><td colspan="2">Eye Drops</td>
-				</tr>
-				<tr style="text-align:center;border:1 solid">
-					<td style="border:1 solid black">11:00</td>
-					<td style="border:1 solid black">21:00</td>
-					<td style="border:1 solid black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td style="border:1 solid black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td style="border:1 solid black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				</tr>
 				<tr>
-					<td colspan="2">28/08/2013</td>
-					<td>&nbsp;&nbsp;&nbsp;To&nbsp;&nbsp;&nbsp;</td>
-					<td colspan="2">29/09/2013</td>
+					<td width="4%"></td>
+					<td colspan=2 width="53%">
+					<label class="checkbox">
+						<input id="m2" name="m2" type="checkbox"><h4>Eyemo</h4>
+					</label></td>
+					<td width="10%"></td>
+					<td><button class="btn btn-small btn-warning" onclick="location.href='addschedule.html'">Edit</button>
+					<button class="btn btn-small btn-danger" onclick="delete(this.id);">Delete</button></td>
 				</tr>
-			</tbody></table><hr><br>
+				<tr style="text-align:center;">
+					<td width="4%"></td>
+					<td>Dosage: </td>
+					<td style="border:1 solid black"><p class="text-success"><strong>2</strong></p></td>
+					<td></td><td>Eye Drops</td>
+				</tr>
+				<tr style="text-align:center;">
+					<td width="4%"></td>
+					<td style="border:1 solid black"><p class="text-info"><strong>11:00</strong></p></td>
+					<td style="border:1 solid black"><p class="text-info"><strong>21:00</strong></p></td>
+				</tr>
+				<tr style="text-align:center;">
+				<td width="4%"></td>
+					<td><p class="text-warning"><strong><i>28/08/2013</i></strong></p></td>
+					<td>&nbsp;&nbsp;&nbsp;To&nbsp;&nbsp;&nbsp;</td>
+					<td></td><td><p class="text-warning"><strong><i>29/09/2013</i></strong></p></td>
+				</tr>
+			</table><hr><br>
 			</div>
 			
 			<!-- This is table 3 -->
 			<div id="table3"><table border="0" width="100%">
-				<tbody><tr>
-					<td colspan="2"><input id="m3" name="m3" type="checkbox">Zylet</td>
-					<td>&nbsp;&nbsp;2</td><td colspan="2">Tablets</td>
-				</tr>
-				<tr style="text-align:center;border:1 solid">
-					<td style="border:1 solid black">08:40</td>
-					<td style="border:1 solid black">13:00</td>
-					<td style="border:1 solid black">18:00</td>
-					<td style="border:1 solid black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td style="border:1 solid black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				</tr>
 				<tr>
-					<td colspan="2">20/08/2013</td>
-					<td>&nbsp;&nbsp;&nbsp;To&nbsp;&nbsp;&nbsp;</td>
-					<td colspan="2">20/09/2013</td>
+					<td width="4%"></td>
+					<td colspan=2 width="53%">
+					<label class="checkbox">
+						<input id="m3" name="m3" type="checkbox"><h4>Zylet</h4>
+					</label></td>
+					<td width="10%"></td>
+					<td><button class="btn btn-small btn-warning" onclick="location.href='addschedule.html'">Edit</button>
+					<button class="btn btn-small btn-danger" onclick="delete(this.id);">Delete</button></td>
 				</tr>
-			</tbody></table><hr>
+				<tr style="text-align:center;">
+					<td width="4%"></td>
+					<td>Dosage: </td>
+					<td style="border:1 solid black"><p class="text-success"><strong>2</strong></p></td>
+					<td></td><td>Tablets</td>
+				</tr>
+				<tr style="text-align:center;">
+					<td width="4%"></td>
+					<td style="border:1 solid black"><p class="text-info"><strong>08:40</strong></p></td>
+					<td style="border:1 solid black"><p class="text-info"><strong>13:00</strong></p></td>
+					<td></td><td style="border:1 solid black"><p class="text-info"><strong>18:00</strong></p></td>
+				</tr>
+				<tr style="text-align:center;">
+				<td width="4%"></td>
+					<td><p class="text-warning"><strong><i>20/08/2013</i></strong></p></td>
+					<td>&nbsp;&nbsp;&nbsp;To&nbsp;&nbsp;&nbsp;</td>
+					<td></td><td><p class="text-warning"><strong><i>20/09/2013</i></strong></p></td>
+				</tr>
+				</table><hr>
 			</div>
 			
-			<input type="button" value="Add Schedule" onclick="location.href='addschedule.html'" style="float:left;font-size:1.2em">
-			<div align=center>
-			<input type="button" value="Edit Schedule" onclick="location.href='addschedule.html'" style="float:none;font-size:1.2em">
-			
-			<input type="button" value="Delete Schedule" onclick="delete();" style="float:right;font-size:1.2em">
-			</div>
 		</div>
-		
-		
     </body>
 </html>

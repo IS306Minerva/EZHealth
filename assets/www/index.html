@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, target-densityDpi=device-dpi" />
+         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, target-densityDpi=device-dpi" />
         <title>Due Today</title>
         <!-- CSS Style file link start -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen" />
@@ -10,58 +10,63 @@
         <link rel="stylesheet" type="text/css" href="css/todc.css" media="screen" />
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/js.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
         <!-- CSS Style file link end-->
         
         <!-- timer popup reminder -->
-        <script type="text/javascript">
-        
-        // Wait for device API libraries to load
-		//
-		document.addEventListener("deviceready", onDeviceReady, false);
-		// device APIs are available
-		//
-		function onDeviceReady() {
-			showAlert();
-		}
-		// alert dialog dismissed
-			function alertDismissed() {
-				// do something
-			}
-		// Show a custom alertDismissed
-		//
-		function showAlert() {
-			
-			navigator.notification.confirm(
-				'14:00\n\nEyemo 2 Droplets\n\nGimlet 2 Tablets\n',  // message
-				alertDismissed,         // callback
-				'Reminder',            // title
-				'Done,Snooze'                  // buttonName
-			);
-			navigator.notification.beep(3);
-		}
-		
-		</script>
+        <script>
+    		
+        	funtion readNew(){
+        		var new_med = [window.localStorage.getItem("med0_name"),window.localStorage.getItem("med1_name"),window.localStorage.getItem("med2_name")];
+        		for(var i =0;i<3;i++){
+	        		if(new_med[i]!=""){
+	        			//Date condition
+	        			var sStart = window.localStorage.getItem("med"+i+"_startDate");
+	        			//var start = sStart.split("/");
+	        			//var startDate = new Date(start[2], start[0], start[1]);
+	        			
+	        			var sEnd = window.localStorage.getItem("med1_endDate");
+	        			
+	        			if(startDate.getTime()>=today.getTime() &&endDate.getTime()<=today.getTime()){
+	        				//interval time condition
+	        				var i1 = window.localStorage.getItem("med"+i+"_interval1");
+	        				var i2 = window.localStorage.getItem("med"+i+"_interval2");
+	        				var i3 = window.localStorage.getItem("med"+i+"_interval3");
+	        				var i4 = window.localStorage.getItem("med"+i+"_interval4");
+	        				var i5 = window.localStorage.getItem("med"+i+"_interval5");
+	        				var intervals = [i1,i2,i3,i4,i5];
+	        				
+	        				for(var j = 0;j<5;j++){
+	        					intervals[j]. >
+	        				}
+	        				
+	        			} 
+	        			var type = window.localStorage.getItem("med"+i+"_type");
+	        			var dosage = window.localStorage.getItem("med"+i+"_dosage");
+	        		}
+        		}
+        	}
+        </script>
         
     </head>
     <body>
-        <header style="width:100%">
+        <header style="width:100%;text-align:center;">
         	<ul class="nav nav-pills">
 			  <li class="active">
-			    <a href="duetoday.html"><img src="img/tasks.png" width="80px"><br>Due Today</a>
+			    <a href="duetoday.html"><img src="img/tasks.png" width="94"><br>Due Today</a>
 			  </li>
-			  <li><a href="schedule.html"><img src="img/calender.png" width="80px"><br>Schedule</a></li>
-			  <li><a href="history.html"><img src="img/history.png" width="80px"><br>History</a></li>
-			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="80px"><br>Help</a></li>
+			  <li><a href="schedule.html"><img src="img/calender.png" width="94"><br>Schedule</a></li>
+			  <li><a href="history.html"><img src="img/history.png" width="94"><br>History</a></li>
+			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="94"><br>Help</a></li>
 			</ul>
         </header>
         
         <div id="content" style="width: 480px">
         	<div id="m1">
+        	<a href="details1.html">
 	        	<table border="0" cellpadding="10" cellspacing="10" style="width:100%;line-height:0.2em">
-				 	<tr><td style="width:30%">Panadol</td></tr>
+				 	<tr><td style="width:30%">Panadol</td><td></td><td><button class="btn btn-small btn-warning" onclick="location.href='details1.html'">Details</button></td></tr>
 					<tr>
-						<td><img src="http://ibuildapp.com/assets2/htmlupload/507261171238497.jpg" width="30"/></td>
+						<td><img src="img/tablet.jpg" width="30"/></td>
 						<td style="width:30%">3</td>
 						<td style="width:40%">Tablet</td>
 					</tr>
@@ -71,13 +76,15 @@
 						<td>Next Reminder</td>
 					</tr>
 				</table>
+				</a>
 				<hr>
 			</div>
 			<div id="m2">
+				<a href="details2.html">
 	        	<table border="0" cellpadding="10" cellspacing="10" style="width:100%;line-height:0.2em">
-				 	<tr><td style="width:30%">Eyemo</td></tr>
+				 	<tr><td style="width:30%">Eyemo</td><td></td><td><button class="btn btn-small btn-warning" onclick="location.href='details2.html'">Details</button></td></tr>
 					<tr>
-						<td><img src="http://ibuildapp.com/assets2/htmlupload/997975818580017.jpg" width="30"></td>
+						<td><img src="img/droplet.jpg" width="30"></td>
 						<td style="width:30%">2</td>
 						<td style="width:40%">Droplet</td>
 					</tr>
@@ -87,13 +94,15 @@
 						<td>Next Reminder</td>
 					</tr>
 				</table>
+				</a>
 				<hr>
 			</div>
 			<div id="m3">
+			<a href="details3.html">
 				<table border="0" cellpadding="10" cellspacing="10" style="width:100%;line-height:0.2em">
-				 	<tr><td style="width:30%">Zylet</td></tr>
+				 	<tr><td style="width:30%">Zylet</td><td></td><td><button class="btn btn-small btn-warning" onclick="location.href='details3.html'">Details</button></td></tr>
 					<tr>
-						<td><img src="http://ibuildapp.com/assets2/htmlupload/507261171238497.jpg" width="30"></td>
+						<td><img src="img/tablet.jpg" width="30"></td>
 						<td style="width:30%">2</td>
 						<td style="width:40%">Tablet</td>
 					</tr>
@@ -103,6 +112,7 @@
 						<td>Next Reminder</td>
 					</tr>
 				</table>
+				</a>
 				<hr>
 			
 			</div>
