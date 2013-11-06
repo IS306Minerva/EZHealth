@@ -6,50 +6,48 @@
         <title>Add a new Schedule</title>
         
         <!-- CSS Style file link start -->
-         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/todc.css" media="screen" />
-        <link rel="stylesheet" href="css/jquery-ui.css" />        
-        <link rel="stylesheet" type="text/css" href="css/select2.css"/>
-        
-  		<script src="js/jquery.js"></script>
-  		<script src="js/jquery-ui.min.js"></script>
-  		
-  		<script type="text/javascript" src="js/select2.js"></script>
-  		<script>
-        	$(document).ready(function() { 
-        		$("#dosage").select2();
-        		$( "#datepicker" ).datepicker();
-		    	$( "#datepicker2" ).datepicker(); 
-        	});
-    	</script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <!-- CSS Style file link end-->
         <style>
+        	select:hover:focus,input:hover:focus{
+        		background:yellow;
+       			
+        	}
 			.button{
 				width: 90px!important;
-				height: 30px!important;
 				text-align: center;
 				font-size: 1.2em;
 			}
         	
         </style>
+        <script>
+		  $(function() {
+		    $( "#datepicker" ).datepicker();
+		    $( "#datepicker2" ).datepicker();
+		  });
+  		</script>
         
     </head>
     <body>
-        <header style="width:100%;text-align:center;">
+        <header style="width:100%">
         	<ul class="nav nav-pills">
 			  <li>
-			    <a href="duetoday.html"><img src="img/tasks.png" width="94"><br>Due Today</a>
+			    <a href="duetoday.html"><img src="img/tasks.png" width="80"><br>Due Today</a>
 			  </li>
-			  <li class="active"><a href="schedule.html"><img src="img/calender.png" width="94"><br>Schedule</a></li>
-			  <li><a href="history.html"><img src="img/history.png" width="94"><br>History</a></li>
-			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="94"><br>Help</a></li>
+			  <li class="active"><a href="schedule.html"><img src="img/calender.png" width="80"><br>Schedule</a></li>
+			  <li><a href="history.html"><img src="img/history.png" width="80"><br>History</a></li>
+			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="80"><br>Help</a></li>
 			</ul>
         </header>
     	
-       <form style="width:100%" action="schedule.html">
+        <form style="width:100%" action="schedule.html">
         	<p>Dosage</p>
-        	<select class="select2-drop-mask" name="dosage" id="dosage" style="width:100%">
+        	<select name="dosage" id="dosage" style="width:100%">
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -61,37 +59,32 @@
 			<script>
 				function interval(id,time){
 					var button = document.getElementById(id);
-					var interval = window.prompt(" Enter a time for "+id,time);
-					if(interval===null){
-						alert("No interval is added.");
-						button.value = "Add";
-					}else{
-					if(interval!=""){
+					var interval = window.prompt(" Choose a time for "+id,time)
+					if(interval!=null){
 							button.value = interval;
 						}else{
-							alert("No interval is added.");
-							button.value = "Add";
+							alert("Interval cannot be empty");
 						}
-					}
+					
 				}
 			
 			</script>
 			<table style="width:100%">
 				<tr>
-					<td style="width:20%;text-align:center;vertical-align: middle;line-height:1em;">
-						<input class="button btn btn-warning" type="button" id="interval_1" onclick="interval(this.id,'06:00');" value="Add"/>
+					<td style="width:20%；text-align:center;vertical-align: middle;">
+						<input class="button" type="button" id="interval_1" onclick="interval(this.id,this.value);" value="09:00"/>
 					</td>
-					<td style="width:20%;text-align:center;vertical-align: middle;line-height:1em;">
-						<input class="button btn btn-warning" type="button" id="interval_2" onclick="interval(this.id,'12:00');" value="Add"/>
+					<td style="width:20%；text-align:center;vertical-align: middle;">
+						<input class="button" type="button" id="interval_2" onclick="interval(this.id,this.value);" value="12:00"/>
 					</td>
-					<td style="width:20%;text-align:center;vertical-align: middle;line-height:1em;">
-						<input class="button btn btn-warning" type="button" id="interval_3" onclick="interval(this.id,'18:00');" value="Add"/>
+					<td style="width:20%；text-align:center;vertical-align: middle;">
+						<input class="button" type="button" id="interval_3" onclick="interval(this.id,this.value);" value="18:00"/>
 					</td>
-					<td style="width:20%;text-align:center;vertical-align: middle;line-height:1em;">
-						<input class="button btn btn-warning" type="button" id="interval_4" onclick="interval(this.id,'00:00');" value="Add"/>
+					<td style="width:20%；text-align:center;vertical-align: middle;">
+						<input class="button" type="button" id="interval_4" onclick="interval(this.id,this.value);" value="00:00"/>
 					</td>
-					<td style="width:20%;text-align:center;vertical-align: middle;line-height:1em;">
-						<input class="button btn btn-warning" type="button" id="interval_5" onclick="interval(this.id,'00:00');" value="Add"/>
+					<td style="width:20%；text-align:center;vertical-align: middle;">
+						<input class="button" type="button" id="interval_5" onclick="interval(5,"00:00");" value="00:00"/>
 					</td>
 				</tr>
 			</table>
@@ -99,35 +92,9 @@
 			<input type="text" id="datepicker" style="width:95%"/><br>
 			<p>End Date:</p>
 			<input type="text" id="datepicker2" style="width:95%"/><br>
-			<button style="float:left;font-size:1.2em" class="btn btn-info" onclick="location.href='addschedule.html'">Back</button>
-			<button style="float:right;font-size:1.2em" class="btn btn-success" onclick="">Next</button>
-			<script>/**
-			function addmedicine() {
-				var med_dosage = $("#name").val();
-	            var med_intervals = [$("#interval_1").val(),$("#interval_2").val(),$("#interval_3").val(),$("#interval_4").val(),$("#interval_5").val()];
-	            var med_start = $("#datepicker").val();
-	            var med_end = $("#datepicker2").val();
-				if(!window.localStorage.getItem("med1_name")){
-		            
-		            window.localStorage.setItem("med1_dosage",med_dosage);
-		            window.localStorage.setItem("med1_intervals",med_intervals);
-		            window.localStorage.setItem("med1_start",med_start);
-		            window.localStorage.setItem("med1_end",med_end);
-		            /**for test
-		            var name = window.localStorage.getItem("med1_name");
-		            var type = window.localStorage.getItem("med1_type");
-		            alert(name+"  "+type);
-		            **//**
-				}else if(!window.localStorage.getItem("med2_name")){
-					window.localStorage.setItem("med2_dosage",med_dosage);
-		            window.localStorage.setItem("med2_intervals",med_intervals);
-		            window.localStorage.setItem("med2_start",med_start);
-		            window.localStorage.setItem("med2_end",med_end);
-				}
-
-	         }
-			*/
-			</script>
+			<input type="reset" value="Reset" style="float:left;font-size:1.2em"/>
+			<input type="submit" value="Next" style="float:right;font-size:1.2em"/>
+	
     	</form>    
     </body>
 </html>

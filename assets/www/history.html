@@ -10,22 +10,18 @@
 	<link rel="stylesheet" type="text/css" href="css/todc.css" media="screen" />
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/js.js"></script>
-	<style>
-		header{
-			text-align:center;
-		}
-	</style>
+	
 	<!-- CSS Style file link end--> 
 </head>
 <body>
         <header style="width:100%">
         	<ul class="nav nav-pills">
 			  <li>
-			    <a href="duetoday.html"><img src="img/tasks.png" width="94"><br>Due Today</a>
+			    <a href="duetoday.html"><img src="img/tasks.png" width="80"><br>Due Today</a>
 			  </li>
-			  <li><a href="schedule.html"><img src="img/calender.png" width="94"><br>Schedule</a></li>
-			  <li class="active"><a href="history.html"><img src="img/history.png" width="94"><br>History</a></li>
-			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="94"><br>Help</a></li>
+			  <li><a href="schedule.html"><img src="img/calender.png" width="80"><br>Schedule</a></li>
+			  <li class="active"><a href="history.html"><img src="img/history.png" width="80"><br>History</a></li>
+			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="80"><br>Help</a></li>
 			</ul>
         </header>
 	<script type="text/javascript">
@@ -156,9 +152,7 @@
 	width:100%;
 	border:0;
 	}
-	tbody td {
-            border: 1px solid #ccc;
-        }
+	
 	.Calendar table thead{color:#acacac;}
 	
 	.Calendar table td {
@@ -202,15 +196,7 @@
 	    <tbody id="idCalendar">
 	    </tbody>
 	  </table>
-	 
 	</div>
-	<br>
-	  <div id="lendary" style="width:40%;float:right;font-size:1.3em;">
-	  	<table>
-	  		<tr><td><div style="width:40px;height:20px;background-color:#b5ae4a;"></div></td><td>Before Today</td></tr>
-	  		<tr><td><div style="width:40px;height:20px;background-color:#34cb4d;"></div></td><td>After Today</td></tr>
-	  	</table>
-	  </div>
 	<script language="JavaScript">
 	
 	var cale = new Calendar("idCalendar", {
@@ -222,9 +208,9 @@
 	        var flag = [5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 	        for(var i = 0, len = flag.length; i < len; i++){
 	        	if (flag[i]<=16){
-	            	this.Days[flag[i]].innerHTML = "<a href='javascript:void(0);' onclick=\"alert('Medication:                                                                                     Panodol 3 tablets 3 times All Taken                                                         Zylet 2 eyedrops 2 times All Taken                                                                "+this.Year+"/"+this.Month+"/"+flag[i]+"');return false;\"><div class='date' style='align:center;width:63px;height:55px;background-color:#b5ae4a;'>" + flag[i] + "</div></a>";
+	            	this.Days[flag[i]].innerHTML = "<a href='javascript:void(0);' onclick=\"alert('Medication:                                                                                     Panodol 3 tablets 3 times All Taken                                                         Zylet 2 eyedrops 2 times All Taken                                                                "+this.Year+"/"+this.Month+"/"+flag[i]+"');return false;\">" + flag[i] + "</a>";
 	        	}else{
-	        		this.Days[flag[i]].innerHTML = "<a href='javascript:void(0);' onclick=\"alert('Medication:                                                                                     Panodol 3 tablets 3 times Will Be Taken                                                         Zylet 2 eyedrops 2 times Will Be Taken                                                                "+this.Year+"/"+this.Month+"/"+flag[i]+"');return false;\"><div class='date' style='align:center;width:63px;height:55px;background-color:#34cb4d;'>" + flag[i] + "</div></a>";
+	        		this.Days[flag[i]].innerHTML = "<a href='javascript:void(0);' onclick=\"alert('Medication:                                                                                     Panodol 3 tablets 3 times Will Be Taken                                                         Zylet 2 eyedrops 2 times Will Be Taken                                                                "+this.Year+"/"+this.Month+"/"+flag[i]+"');return false;\">" + flag[i] + "</a>";
 	        	}
 	        }
 	    }

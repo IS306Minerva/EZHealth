@@ -9,29 +9,24 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/todc.css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="css/select2.css"/>
-        
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/js.js"></script>
-        <script type="text/javascript" src="js/select2.js"></script>
         <!-- CSS Style file link end-->
-        <script>
-        	$(document).ready(function() { $("#type").select2(); });
-    	</script>
+        
     </head>
     <body>
-        <header style="width:100%;text-align:center;">
+        <header style="width:100%">
         	<ul class="nav nav-pills">
 			  <li>
-			    <a href="duetoday.html"><img src="img/tasks.png" width="94"><br>Due Today</a>
+			    <a href="duetoday.html"><img src="img/tasks.png" width="80"><br>Due Today</a>
 			  </li>
-			  <li class="active"><a href="schedule.html"><img src="img/calender.png" width="94"><br>Schedule</a></li>
-			  <li><a href="history.html"><img src="img/history.png" width="94"><br>History</a></li>
-			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="94"><br>Help</a></li>
+			  <li class="active"><a href="schedule.html"><img src="img/calender.png" width="80"><br>Schedule</a></li>
+			  <li><a href="history.html"><img src="img/history.png" width="80"><br>History</a></li>
+			  <li><a href="help.html"><img src="img/bullet-question-w-g.png" width="80"><br>Help</a></li>
 			</ul>
         </header>
     
-         <form style="width:100%" action="addmedicine.html">
+        <form style="width:100%" action="addmedicine.html">
 	        <!-- table1 name -->
 	        <table border="0" cellpadding="10" cellspacing="0" width="480">
 	        	<tr>
@@ -51,17 +46,18 @@
 				</tr>
 				<tr>
 					<td>
-						<select class="select2-drop-mask" name="type" id="type" style="width:100%">
-						<option value="tablet">Tablet</option>
-        				<option value="pill">Pill</option>
-        				<option value="droplet">Droplet</option>
-        				<option value="liquid">Liquid</option>
-        				</select>
+						<select name="type" id="type" style="width:100%">
+							<option value="tablet">Tablet</option>
+							<option value="pill">Pill</option>
+							<option value="eye_drop">Eye drop</option>
+							<option value="tablet">Liquid</option>							
+						</select>
 					</td>
 				</tr>
 			</table>
-			<button style="float:left;font-size:1.2em" class="btn btn-info" onclick="location.href='schedule.html'">Back</button> 
-			<button style="float:right;font-size:1.2em" class="btn btn-success" onclick="location.href='addmedicine.html'">Next</button>
+			        
+			<input type="reset" value="Reset" style="float:left;font-size:1.2em"/>
+			<input type="submit" value="Next" style="float:right;font-size:1.2em"/>
 	
     	</form>    
     </body>
